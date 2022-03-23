@@ -31,8 +31,80 @@ import time
 #########################################################
 #                   Your Code Goes Below                #
 #########################################################
+def drawSquare(myturtle=None, width=0, 
+   top_left_x=0, top_left_y=0):
+   myturtle.penup()
+   myturtle.goto(top_left_x,top_left_y)
+   for i in range(2):
+     myturtle.pendown()
+     myturtle.forward(width)
+     myturtle.right(90)
+     myturtle.forward(width)
+     myturtle.right(90)
 
+def drawLine(myturtle=None, x_start=0, y_start=0, x_end=0, y_end=0):
+  myturtle.penup()
+  myturtle.goto(x_start,y_start)
+  myturtle.pendown()
+  myturtle.goto(x_end,y_end)
 
+def drawCircle(myturtle=None, radius=None):
+  myturtle.penup()
+  myturtle.goto(0,-1)
+  myturtle.pendown()
+  myturtle.circle(radius)
+
+def setUpDartboard(window=None, myturtle=None):
+  window.setworldcoordinates(-1.75,-1.75,1.75,1.75)
+  drawSquare(turtle, 2,-1, 1)
+  drawLine(turtle, 0, -1, 0, 1)
+  drawLine(turtle, -1, 0, 1, 0)
+  drawCircle(turtle, 1,)
+
+def isinCircle(myturtle=None, Circle_center_x=0, circle_center_y=0, radius=0):
+  if turtle.distance(0,0)<=1:
+    turtle.dot("green")
+    return True
+  else:
+     turtle.dot("red")
+  
+
+def throwDart(myturtle=None):
+  x=random.uniform(-1,1)
+  y=random.uniform(-1,1)
+  for i in range (10):
+    myturtle.penup()
+  myturtle.goto(x,y)
+  myturtle.dot()
+
+def playDarts(myturtl=None):
+  player1=0
+  player2=0
+  for i in range(10):
+     throwDart(turtle)
+     if isinCircle(turtle):
+      player1+=1
+  for i in range(10):
+    throwDart(turtle)
+    if isinCircle(turtle):
+      player2+=1
+  if player1>player2:
+    print("PLAYER 1 WINS")
+  elif player2>player1:
+    print("PLAYER 2 WINS")
+  else:
+    print("TIE")
+  
+def montePi(myturtle=None, num_darts=0):
+  inside_count=0
+  for i in range(num_darts):
+    throwDart(turtle)
+    if isinCircle(turtle):
+       inside_count+=1
+  pi=(inside_count/num_darts)*4
+  return pi
+
+  
 
 #########################################################
 #         Do not alter any code below here              #
