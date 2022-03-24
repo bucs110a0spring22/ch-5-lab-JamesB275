@@ -35,24 +35,31 @@ def drawSquare(myturtle=None, width=0,
    top_left_x=0, top_left_y=0):
    myturtle.penup()
    myturtle.goto(top_left_x,top_left_y)
-   for i in range(2):
+   for i in range(4):
      myturtle.pendown()
      myturtle.forward(width)
      myturtle.right(90)
-     myturtle.forward(width)
-     myturtle.right(90)
+''' 
+discription: function makes square
+'''
 
 def drawLine(myturtle=None, x_start=0, y_start=0, x_end=0, y_end=0):
   myturtle.penup()
   myturtle.goto(x_start,y_start)
   myturtle.pendown()
   myturtle.goto(x_end,y_end)
+''' 
+discription: function draws line
+'''
 
 def drawCircle(myturtle=None, radius=None):
   myturtle.penup()
   myturtle.goto(0,-1)
   myturtle.pendown()
   myturtle.circle(radius)
+'''
+description: function first goes to bottom of graph, and draws circle from there
+'''
 
 def setUpDartboard(window=None, myturtle=None):
   window.setworldcoordinates(-1.75,-1.75,1.75,1.75)
@@ -60,6 +67,9 @@ def setUpDartboard(window=None, myturtle=None):
   drawLine(turtle, 0, -1, 0, 1)
   drawLine(turtle, -1, 0, 1, 0)
   drawCircle(turtle, 1,)
+'''
+description: function sets up world coordinates so that graph is at a reasonable size, then sets how the square, lines, and circle is draw. line is called twice.
+'''
 
 def isinCircle(myturtle=None, Circle_center_x=0, circle_center_y=0, radius=0):
   if turtle.distance(0,0)<=1:
@@ -67,7 +77,9 @@ def isinCircle(myturtle=None, Circle_center_x=0, circle_center_y=0, radius=0):
     return True
   else:
      turtle.dot("red")
-  
+'''
+description: if the turtle is further than 1 length away from the center, the dot shows as red. otherwise it is green
+'''
 
 def throwDart(myturtle=None):
   x=random.uniform(-1,1)
@@ -76,8 +88,11 @@ def throwDart(myturtle=None):
     myturtle.penup()
   myturtle.goto(x,y)
   myturtle.dot()
+'''
+Description: picks a random y and x variable for dart to be thrown. 
+'''
 
-def playDarts(myturtl=None):
+def playDarts(myturtle=None):
   player1=0
   player2=0
   for i in range(10):
@@ -94,7 +109,10 @@ def playDarts(myturtl=None):
     print("PLAYER 2 WINS")
   else:
     print("TIE")
-  
+''' 
+Description: dart is thrown for each player 10 times, if it is in the circle it would show as green and the player accumulates 1 point. after each player throws 10 times the result is either a win or tie.
+'''
+
 def montePi(myturtle=None, num_darts=0):
   inside_count=0
   for i in range(num_darts):
@@ -103,6 +121,9 @@ def montePi(myturtle=None, num_darts=0):
        inside_count+=1
   pi=(inside_count/num_darts)*4
   return pi
+''' 
+Description: computes Pi and prints, gets more accurate as more darts are thrown. 
+'''
 
   
 
